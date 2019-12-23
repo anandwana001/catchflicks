@@ -1,7 +1,8 @@
-package com.akshay.catchflicks
+package com.akshay.catchflicks.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.akshay.catchflicks.R
 
 class MainActivity : AppCompatActivity() {
 
