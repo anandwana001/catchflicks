@@ -19,9 +19,15 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", API_KEY)
+        }
         release {
-            minifyEnabled true
+            minifyEnabled true // to apply the proguard
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", API_KEY)
         }
     }
 }
