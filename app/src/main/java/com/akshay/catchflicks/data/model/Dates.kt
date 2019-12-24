@@ -7,13 +7,12 @@ import com.google.gson.annotations.SerializedName
  * Created by akshaynandwana on
  * 24, December, 2019
  **/
-
-data class GenreItems(
+data class Dates(
     @Expose
-    @SerializedName("id")
-    val id: Int,
+    @SerializedName("maximum")
+    val maximum: String,
 
     @Expose
-    @SerializedName("name")
-    val name: String
+    @SerializedName("minimum")
+    val minimum: String
 )

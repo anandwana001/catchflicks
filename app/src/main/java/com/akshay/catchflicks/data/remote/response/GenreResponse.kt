@@ -1,6 +1,6 @@
 package com.akshay.catchflicks.data.remote.response
 
-import com.akshay.catchflicks.data.model.GenreItems
+import com.akshay.catchflicks.data.model.Genre
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -17,5 +17,5 @@ import com.google.gson.annotations.SerializedName
 data class GenreResponse(
     @Expose
     @SerializedName("genres")
-    val genres: List<GenreItems>
+    val genres: List<Genre>
 )

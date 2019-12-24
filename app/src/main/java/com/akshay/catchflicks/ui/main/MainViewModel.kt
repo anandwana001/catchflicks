@@ -2,7 +2,7 @@ package com.akshay.catchflicks.ui.main
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.akshay.catchflicks.data.model.GenreItems
+import com.akshay.catchflicks.data.model.Genre
 import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.di.ActivityScope
 import com.akshay.catchflicks.utils.common.Constants
@@ -24,7 +24,7 @@ class MainViewModel @Inject constructor(
         const val TAG = "MainViewModel"
     }
 
-    val genreList: MutableLiveData<List<GenreItems>> = MutableLiveData()
+    val genreList: MutableLiveData<List<Genre>> = MutableLiveData()
 
     fun getGenreList() {
         compositeDisposable.addAll(
