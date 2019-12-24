@@ -7,4 +7,5 @@ package com.akshay.catchflicks.utils.common
 
 object Constants {
 
+    const val LANGUAGE_EN = "en-US"
 }

@@ -3,9 +3,11 @@ package com.akshay.catchflicks.di.component
 import android.app.Application
 import android.content.Context
 import com.akshay.catchflicks.CatchflicksApplication
+import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.di.ApplicationContext
 import com.akshay.catchflicks.di.module.ApplicationModule
 import dagger.Component
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
 /**
@@ -24,4 +26,7 @@ interface ApplicationComponent {
     @ApplicationContext
     fun getContext(): Context
 
+    fun getCompositeDisposable(): CompositeDisposable
+
+    fun getNetworkService(): NetworkService
 }

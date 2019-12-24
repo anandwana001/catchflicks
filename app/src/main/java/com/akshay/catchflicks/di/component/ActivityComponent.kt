@@ -2,6 +2,7 @@ package com.akshay.catchflicks.di.component
 
 import com.akshay.catchflicks.di.ActivityScope
 import com.akshay.catchflicks.di.module.ActivityModule
+import com.akshay.catchflicks.ui.main.MainActivity
 import dagger.Component
 
 /**
@@ -16,5 +17,6 @@ import dagger.Component
 )
 interface ActivityComponent {
 
+    fun inject(activity: MainActivity)
 
 }
