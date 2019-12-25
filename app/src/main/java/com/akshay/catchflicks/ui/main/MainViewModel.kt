@@ -6,8 +6,8 @@ import com.akshay.catchflicks.data.model.Genre
 import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.di.ActivityScope
 import com.akshay.catchflicks.utils.common.Constants
+import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -17,6 +17,7 @@ import javax.inject.Inject
 @ActivityScope
 class MainViewModel @Inject constructor(
     private val compositeDisposable: CompositeDisposable,
+    private val schedulerProvider: SchedulerProvider,
     private val networkService: NetworkService
 ) {
 
@@ -29,7 +30,7 @@ class MainViewModel @Inject constructor(
     fun getGenreList() {
         compositeDisposable.addAll(
             networkService.doGenreCall(language = Constants.LANGUAGE_EN)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(schedulerProvider.io())
                 .subscribe(
                     {
                         genreList.postValue(it.genres)

@@ -7,6 +7,8 @@ import com.akshay.catchflicks.CatchflicksApplication
 import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.data.remote.Networking
 import com.akshay.catchflicks.di.ApplicationContext
+import com.akshay.catchflicks.utils.rx.RxSchedulerProvider
+import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
@@ -31,6 +33,9 @@ class ApplicationModule(private val application: CatchflicksApplication) {
 
     @Provides
     fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
+
+    @Provides
+    fun provideSchedulerProvider(): SchedulerProvider = RxSchedulerProvider()
 
     @Provides
     @Singleton

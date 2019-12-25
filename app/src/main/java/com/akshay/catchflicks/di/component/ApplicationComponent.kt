@@ -6,6 +6,7 @@ import com.akshay.catchflicks.CatchflicksApplication
 import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.di.ApplicationContext
 import com.akshay.catchflicks.di.module.ApplicationModule
+import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Component
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
@@ -27,6 +28,8 @@ interface ApplicationComponent {
     fun getContext(): Context
 
     fun getCompositeDisposable(): CompositeDisposable
+
+    fun getSchedulerProvider(): SchedulerProvider
 
     fun getNetworkService(): NetworkService
 }
