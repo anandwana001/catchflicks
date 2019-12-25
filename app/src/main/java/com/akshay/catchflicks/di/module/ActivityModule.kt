@@ -1,10 +1,14 @@
 package com.akshay.catchflicks.di.module
 
-import android.app.Activity
-import android.content.Context
-import com.akshay.catchflicks.di.ActivityContext
+import androidx.lifecycle.ViewModelProviders
+import com.akshay.catchflicks.data.remote.NetworkService
+import com.akshay.catchflicks.ui.base.BaseActivity
+import com.akshay.catchflicks.ui.main.MainViewModel
+import com.akshay.catchflicks.utils.ViewModelProviderFactory
+import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 
 /**
  * Created by akshaynandwana on
@@ -12,9 +16,15 @@ import dagger.Provides
  **/
 
 @Module
-class ActivityModule(private val activity: Activity) {
+class ActivityModule(private val activity: BaseActivity<*>) {
 
-    @ActivityContext
     @Provides
-    fun provideContext(): Context = activity
+    fun provideMainViewModel(
+        schedulerProvider: SchedulerProvider,
+        compositeDisposable: CompositeDisposable,
+        networkService: NetworkService
+    ): MainViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(MainViewModel::class) {
+            MainViewModel(compositeDisposable, schedulerProvider, networkService)
+        }).get(MainViewModel::class.java)
 }
