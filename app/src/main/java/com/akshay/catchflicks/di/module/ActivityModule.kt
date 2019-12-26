@@ -5,6 +5,7 @@ import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.ui.base.BaseActivity
 import com.akshay.catchflicks.ui.main.MainViewModel
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
+import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
@@ -22,9 +23,10 @@ class ActivityModule(private val activity: BaseActivity<*>) {
     fun provideMainViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper,
         networkService: NetworkService
     ): MainViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(MainViewModel::class) {
-            MainViewModel(compositeDisposable, schedulerProvider, networkService)
+            MainViewModel(compositeDisposable, schedulerProvider, networkHelper, networkService)
         }).get(MainViewModel::class.java)
 }

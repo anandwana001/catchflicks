@@ -7,6 +7,7 @@ import com.akshay.catchflicks.CatchflicksApplication
 import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.data.remote.Networking
 import com.akshay.catchflicks.di.ApplicationContext
+import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.RxSchedulerProvider
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Module
@@ -46,4 +47,7 @@ class ApplicationModule(private val application: CatchflicksApplication) {
             application.cacheDir,
             10 * 1024 * 1024
         )
+
+    @Provides
+    fun provideNetworkHelper(): NetworkHelper = NetworkHelper(application)
 }

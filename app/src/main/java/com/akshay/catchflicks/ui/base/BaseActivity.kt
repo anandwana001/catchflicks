@@ -2,11 +2,14 @@ package com.akshay.catchflicks.ui.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.akshay.catchflicks.CatchflicksApplication
 import com.akshay.catchflicks.di.component.ActivityComponent
 import com.akshay.catchflicks.di.component.DaggerActivityComponent
 import com.akshay.catchflicks.di.module.ActivityModule
+import com.akshay.catchflicks.utils.display.Toaster
 import javax.inject.Inject
 
 /**
@@ -53,8 +56,18 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     // any helper work like showing toast can be done here.
     protected open fun setupObservers() {
+        viewModel.messageString.observe(this, Observer {
+            it?.run { showMessage(this) }
+        })
 
+        viewModel.messageStringId.observe(this, Observer {
+            it?.run { showMessage(this) }
+        })
     }
+
+    fun showMessage(message: String) = Toaster.show(applicationContext, message)
+
+    fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
 
     open fun goBack() = onBackPressed()
 
