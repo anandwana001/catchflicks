@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemGenre"
+        android:title="@string/genre"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemDarkMode"
+        android:title="@string/dark_mode"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemRegion"
+        android:title="@string/region"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemLanguage"
+        android:title="@string/language"
+        app:showAsAction="never" />
+</menu>

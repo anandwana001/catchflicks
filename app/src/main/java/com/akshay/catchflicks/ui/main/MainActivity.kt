@@ -1,6 +1,7 @@
 package com.akshay.catchflicks.ui.main
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.lifecycle.Observer
 import com.akshay.catchflicks.R
 import com.akshay.catchflicks.di.component.ActivityComponent
@@ -19,15 +20,20 @@ class MainActivity : BaseActivity<MainViewModel>() {
         activityComponent.inject(this)
 
     override fun setupView(savedInstanceState: Bundle?) {
-
+        setSupportActionBar(toolbar)
     }
 
     override fun setupObservers() {
         super.setupObservers()
 
         viewModel.genreList.observe(this, Observer {
-            tvGenreList.text = it.toString()
+
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_appbar_menu, menu)
+        return true
     }
 
 }

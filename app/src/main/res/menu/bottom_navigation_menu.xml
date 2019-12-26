@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemPopular"
+        android:title="@string/popular_movies"
+        android:icon="@drawable/popular"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/itemUpcoming"
+        android:title="@string/upcoming_movies"
+        android:icon="@drawable/upcoming"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/itemNowPlaying"
+        android:title="@string/now_playing_movies"
+        android:icon="@drawable/now_playing"
+        app:showAsAction="always" />
+
+</menu>

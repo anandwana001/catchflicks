@@ -9,4 +9,17 @@
     <string name="network_internal_error">Our systems got an error, please retry again</string>
     <string name="network_server_not_available">Our services are under maintenance, please retry after some time
     </string>
+
+    <!-- Bottom Nav Menu -->
+    <string name="popular_movies">Popular</string>
+    <string name="upcoming_movies">Upcoming</string>
+    <string name="now_playing_movies">Now Playing</string>
+    <string name="genre">Genres</string>
+
+    <!-- Top App Bar Menu -->
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="region">Region</string>
+    <string name="language">Language</string>
+
 </resources>
