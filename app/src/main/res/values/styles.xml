@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -9,8 +9,14 @@
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="android:textColorSecondaryInverse">@color/secondaryLightColor</item>
-        <item name="android:fontFamily">@font/death_star</item>
-        <item name="fontFamily">@font/death_star</item>
+        <item name="android:fontFamily">@font/itc_avant_grade_std_bk</item>
+        <item name="fontFamily">@font/itc_avant_grade_std_bk</item>
+    </style>
+
+    <style name="AppTheme.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/itc_avant_grade_std_bold</item>
+        <item name="android:fontFamily">@font/itc_avant_grade_std_bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
 </resources>
