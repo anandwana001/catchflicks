@@ -1,4 +1,4 @@
-package com.akshay.catchflicks.ui.main
+package com.akshay.catchflicks.ui.popular
 
 import androidx.lifecycle.MutableLiveData
 import com.akshay.catchflicks.ui.base.BaseViewModel
@@ -8,33 +8,19 @@ import io.reactivex.disposables.CompositeDisposable
 
 /**
  * Created by akshaynandwana on
- * 24, December, 2019
+ * 26, December, 2019
  **/
 
-class MainViewModel(
+class PopularViewModel(
     compositeDisposable: CompositeDisposable,
     schedulerProvider: SchedulerProvider,
     networkHelper: NetworkHelper
 ) : BaseViewModel(compositeDisposable, schedulerProvider, networkHelper) {
 
-    val popularNavigation = MutableLiveData<Boolean>()
-    val nowPlayingNavigation = MutableLiveData<Boolean>()
-    val upcomingNavigation = MutableLiveData<Boolean>()
+    val loading: MutableLiveData<Boolean> = MutableLiveData()
 
     override fun onCreate() {
-        popularNavigation.postValue(true)
-    }
-
-    fun onPopularSelected() {
-        popularNavigation.postValue(true)
-    }
-
-    fun onNowPlayingSelected() {
-        nowPlayingNavigation.postValue(true)
-    }
-
-    fun onUpcomingSelected() {
-        upcomingNavigation.postValue(true)
+        loading.postValue(false)
     }
 
 }

@@ -2,6 +2,9 @@ package com.akshay.catchflicks.di.component
 
 import com.akshay.catchflicks.di.FragmentScope
 import com.akshay.catchflicks.di.module.FragmentModule
+import com.akshay.catchflicks.ui.popular.NowPlayingFragment
+import com.akshay.catchflicks.ui.popular.PopularFragment
+import com.akshay.catchflicks.ui.popular.UpcomingFragment
 import dagger.Component
 
 /**
@@ -16,4 +19,9 @@ import dagger.Component
 )
 interface FragmentComponent {
 
+    fun inject(fragment: PopularFragment)
+
+    fun inject(fragment: NowPlayingFragment)
+
+    fun inject(fragment: UpcomingFragment)
 }
