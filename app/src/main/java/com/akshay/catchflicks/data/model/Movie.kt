@@ -11,7 +11,7 @@ data class Movie(
 
     @Expose
     @SerializedName("popularity")
-    val popularity: Double,
+    val popularity: Float,
 
     @Expose
     @SerializedName("vote_count")

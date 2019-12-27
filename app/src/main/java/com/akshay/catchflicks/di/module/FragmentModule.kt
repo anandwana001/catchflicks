@@ -1,16 +1,20 @@
 package com.akshay.catchflicks.di.module
 
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.akshay.catchflicks.data.remote.NetworkService
 import com.akshay.catchflicks.ui.base.BaseFragment
 import com.akshay.catchflicks.ui.popular.NowPlayingViewModel
 import com.akshay.catchflicks.ui.popular.PopularViewModel
 import com.akshay.catchflicks.ui.popular.UpcomingViewModel
+import com.akshay.catchflicks.ui.popular.movie.MovieAdapter
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
 import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.processors.PublishProcessor
 
 /**
  * Created by akshaynandwana on
@@ -21,14 +25,22 @@ import io.reactivex.disposables.CompositeDisposable
 class FragmentModule(private val fragment: BaseFragment<*>) {
 
     @Provides
+    fun provideLinearLayoutManager(): LinearLayoutManager = LinearLayoutManager(fragment.context)
+
+    @Provides
+    fun provideMovieAdapter(): MovieAdapter = MovieAdapter(fragment.lifecycle, ArrayList())
+
+    @Provides
     fun providePopularViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
-        networkHelper: NetworkHelper
+        networkHelper: NetworkHelper,
+        networkService: NetworkService
     ): PopularViewModel = ViewModelProviders.of(
         fragment, ViewModelProviderFactory(PopularViewModel::class) {
             PopularViewModel(
-                compositeDisposable, schedulerProvider, networkHelper
+                compositeDisposable, schedulerProvider, networkHelper, networkService,
+                PublishProcessor.create(), ArrayList()
             )
         }).get(PopularViewModel::class.java)
 

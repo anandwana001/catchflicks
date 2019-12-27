@@ -42,48 +42,35 @@
                 android:layout_marginEnd="4dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                app:layout_constraintEnd_toStartOf="@+id/ivBookmark"
+                app:layout_constraintEnd_toStartOf="@+id/tvVoteAverage"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Aladdin" />
 
-            <ImageView
-                android:id="@+id/ivBookmark"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvVoteAverage"
+                style="@style/AppTheme.Headline6"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"
-                android:src="@drawable/ic_bookmark_border_black_24dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
-
-            <RatingBar
-                android:id="@+id/rbRatings"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:stepSize="0.1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.01"
-                app:layout_constraintStart_toStartOf="@+id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-                tools:rating="3.5" />
+                tools:text="6.8" />
 
             <TextView
                 android:id="@+id/tvOverview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="24dp"
                 android:ellipsize="end"
-                android:maxLines="4"
+                android:maxLines="3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/rbRatings"
-                app:layout_constraintTop_toBottomOf="@+id/rbRatings"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
                 tools:text="A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true." />
 
 
@@ -101,7 +88,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -118,10 +105,9 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/card_header"
+                android:id="@+id/ivPoster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
