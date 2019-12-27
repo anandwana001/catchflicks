@@ -2,7 +2,7 @@ package com.akshay.catchflicks.ui.popular
 
 import androidx.lifecycle.MutableLiveData
 import com.akshay.catchflicks.data.model.Movie
-import com.akshay.catchflicks.data.remote.NetworkService
+import com.akshay.catchflicks.data.repository.PopularRepository
 import com.akshay.catchflicks.ui.base.BaseViewModel
 import com.akshay.catchflicks.utils.common.Constants
 import com.akshay.catchflicks.utils.network.NetworkHelper
@@ -19,7 +19,7 @@ class PopularViewModel(
     compositeDisposable: CompositeDisposable,
     schedulerProvider: SchedulerProvider,
     networkHelper: NetworkHelper,
-    private val networkService: NetworkService,
+    popularRepository: PopularRepository,
     private val paginator: PublishProcessor<Int>,
     private val allMovieList: ArrayList<Movie>
 ) : BaseViewModel(compositeDisposable, schedulerProvider, networkHelper) {
@@ -37,9 +37,9 @@ class PopularViewModel(
                     loading.postValue(true)
                 }
                 .concatMapSingle { page ->
-                    return@concatMapSingle networkService.doPopularMoviesCall(
+                    return@concatMapSingle popularRepository.fetchPopularMovies(
                         language = Constants.LANGUAGE_EN,
-                        page = page
+                        pageNumber = page
                     )
                         .subscribeOn(schedulerProvider.io())
                         .doOnError {
@@ -48,10 +48,10 @@ class PopularViewModel(
                 }
                 .subscribe(
                     {
-                        allMovieList.addAll(it.results)
+                        allMovieList.addAll(it)
 
                         loading.postValue(false)
-                        moviesList.postValue(it.results)
+                        moviesList.postValue(it)
                     },
                     {
                         handleNetworkError(it)

@@ -3,6 +3,8 @@ package com.akshay.catchflicks.di.component
 import com.akshay.catchflicks.di.ViewModelScope
 import com.akshay.catchflicks.di.module.ViewHolderModule
 import com.akshay.catchflicks.ui.popular.movie.MovieItemViewHolder
+import com.akshay.catchflicks.ui.popular.movie.MovieNowPlayingItemViewHolder
+import com.akshay.catchflicks.ui.popular.movie.MovieUpcomingItemViewHolder
 import dagger.Component
 
 /**
@@ -17,5 +19,9 @@ import dagger.Component
 interface ViewHolderComponent {
 
     fun inject(viewHolder: MovieItemViewHolder)
+
+    fun inject(viewHolder: MovieNowPlayingItemViewHolder)
+
+    fun inject(viewHolder: MovieUpcomingItemViewHolder)
 
 }
