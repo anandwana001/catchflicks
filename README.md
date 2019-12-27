@@ -11,26 +11,29 @@ Project consist of multiple packages in order to achieve mvvm architecture.
 
 ### Tech-stack
 This project use multiple libraries to bring easy way of implementation.
-* Dagger2
-* Retrofit
-* Timber
-* Glide
-* RxJava
-* GSON
-* Room
-* Lifecycle
-* Material Design
+* [Dagger2](https://dagger.dev/)
+* [Retrofit](https://square.github.io/retrofit/)
+* [Timber](https://github.com/JakeWharton/timber)
+* [Glide](https://github.com/bumptech/glide)
+* [RxJava](https://github.com/ReactiveX/RxJava)
+* [GSON](https://github.com/google/gson)
+* [Room](https://developer.android.com/topic/libraries/architecture/room)
+* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+* [AndroidX](https://developer.android.com/jetpack/androidx)
+* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* [Material Design](https://material.io/develop/android/)
 
 ### Screenshot
-First Screenshot<br>
-<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/first_screenshot.jpg" width="200" height="400" />
-
-Latest Screenshot<br>
+<p float="left">
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/first_screenshot.jpg" width="200" height="400" /> 
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
+</p>
 
 ### Work in Progress
 - [ ] Detail Screen
 - [ ] Share Item
+- [ ] Try Coil lib
 - [ ] Bookmark Movie
 - [ ] Genre List Screen
 - [ ] Search feature
