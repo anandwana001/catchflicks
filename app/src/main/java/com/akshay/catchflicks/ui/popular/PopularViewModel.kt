@@ -20,14 +20,14 @@ class PopularViewModel(
     schedulerProvider: SchedulerProvider,
     networkHelper: NetworkHelper,
     private val networkService: NetworkService,
-    private val paginator: PublishProcessor<Pair<String?, String?>>,
+    private val paginator: PublishProcessor<Int>,
     private val allMovieList: ArrayList<Movie>
 ) : BaseViewModel(compositeDisposable, schedulerProvider, networkHelper) {
 
     val loading: MutableLiveData<Boolean> = MutableLiveData()
     val moviesList: MutableLiveData<List<Movie>> = MutableLiveData()
 
-    var page: Int = 0
+    var pageNumber: Int = 1
 
     init {
         compositeDisposable.addAll(
@@ -36,7 +36,7 @@ class PopularViewModel(
                 .doOnNext {
                     loading.postValue(true)
                 }
-                .concatMapSingle {
+                .concatMapSingle { page ->
                     return@concatMapSingle networkService.doPopularMoviesCall(
                         language = Constants.LANGUAGE_EN,
                         page = page
@@ -65,16 +65,17 @@ class PopularViewModel(
     }
 
     private fun loadMorePosts() {
-        val firstPostId = if (allMovieList.isNotEmpty()) allMovieList[0].id else null
-        val lastPostId = if (allMovieList.size > 1) allMovieList[allMovieList.size - 1].id else null
         if (checkInternetConnectionWithMessage()) {
-            page++
-            paginator.onNext(Pair(firstPostId.toString(), lastPostId.toString()))
+            paginator.onNext(pageNumber)
         }
     }
 
     fun onLoadMore() {
         if (loading.value !== null && loading.value == false) loadMorePosts()
+    }
+
+    fun pageUp() {
+        pageNumber++
     }
 
 }

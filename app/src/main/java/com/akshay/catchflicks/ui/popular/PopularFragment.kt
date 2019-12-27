@@ -53,7 +53,10 @@ class PopularFragment : BaseFragment<PopularViewModel>() {
                         if (this is LinearLayoutManager
                             && itemCount > 0
                             && itemCount == findLastVisibleItemPosition() + 1
-                        ) viewModel.onLoadMore()
+                        ) {
+                            viewModel.pageUp()
+                            viewModel.onLoadMore()
+                        }
                     }
                 }
             })

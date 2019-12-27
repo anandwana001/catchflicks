@@ -9,6 +9,7 @@ import com.akshay.catchflicks.di.component.ViewHolderComponent
 import com.akshay.catchflicks.ui.base.BaseItemViewHolder
 import com.akshay.catchflicks.utils.common.Constants
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_popular.view.*
 
@@ -49,6 +50,7 @@ class MovieItemViewHolder(
 
                 Glide.with(itemView.ivPoster.context)
                     .load(imageUrl)
+                    .transition(DrawableTransitionOptions.withCrossFade())
                     .apply(options)
                     .into(itemView.ivPoster)
             }
