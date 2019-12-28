@@ -30,7 +30,7 @@ import kotlin.reflect.KClass
  *
  *
  * KClass is the holder of class of type ViewModel that needs to be inject
- * This is the Lambda function, this is provided be the ActivityModule/FragmentModule,
+ * This is the Lambda function, this is provided by the ActivityModule/FragmentModule,
  * when creator lambda is called then that module creates and return the instance of ViewModel
  */
 
