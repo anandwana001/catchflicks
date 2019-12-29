@@ -38,11 +38,12 @@ class ViewModelProviderFactory<T : ViewModel>(
 }
 ```
 
-- ```
+```
     ViewModelProviders.of(activity, ViewModelProviderFactory(MainViewModel::class){
             // MainViewModel(PARAM_1,PARAM_2)
         }).get(MainViewModel::class.java)
-  ```
+```
+
 - We are extending our custom class with `ViewModelProvider.NewInstanceFactory()`.
 - This is used to create the instance of the given class. 
 - This by default returns class object with empty argument list. `return modelClass.newInstance();`
