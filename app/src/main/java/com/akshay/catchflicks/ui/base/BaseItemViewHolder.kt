@@ -1,15 +1,14 @@
 package com.akshay.catchflicks.ui.base
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.akshay.catchflicks.BR
 import com.akshay.catchflicks.CatchflicksApplication
 import com.akshay.catchflicks.di.component.DaggerViewHolderComponent
 import com.akshay.catchflicks.di.component.ViewHolderComponent
@@ -22,8 +21,10 @@ import javax.inject.Inject
  * 27, December, 2019
  **/
 abstract class BaseItemViewHolder<T : Any, VM : BaseItemViewModel<T>>(
-    @LayoutRes layoutId: Int, parent: ViewGroup
-) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false)),
+    private val binding: ViewDataBinding
+) : RecyclerView.ViewHolder(
+    binding.root
+),
     LifecycleOwner {
 
     @Inject
@@ -96,7 +97,8 @@ abstract class BaseItemViewHolder<T : Any, VM : BaseItemViewModel<T>>(
     }
 
     open fun bind(data: T) {
-        viewModel.updateData(data)
+        binding.setVariable(BR.movie, data)
+        binding.executePendingBindings()
     }
 
     private fun buildViewHolderComponent() =

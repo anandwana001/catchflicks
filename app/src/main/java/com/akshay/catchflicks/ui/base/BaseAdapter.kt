@@ -114,10 +114,4 @@ abstract class BaseAdapter<T : Any, VH : BaseItemViewHolder<T, out BaseItemViewM
             notifyItemRangeChanged(oldCount - 1, currentCount - oldCount)
     }
 
-    fun updateList(list: List<T>) {
-        dataList.clear()
-        dataList.addAll(list)
-        notifyDataSetChanged()
-    }
-
 }
