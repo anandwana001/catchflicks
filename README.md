@@ -9,17 +9,17 @@ Project consist of multiple packages in order to achieve mvvm architecture.
 * ui
 * utils
 
-#### Custom ViewModelProviderFactory
-I had created a custom ViewModelProviderFactory class because I need to pass arguments in my View Model class constructor. 
+### Custom ViewModelProviderFactory
+I had created a custom `ViewModelProviderFactory` class because I need to pass arguments in my View Model class constructor. 
 
 - Default -> `ViewModelProviders.of(this).get(MyViewModel.class);`
-- ViewModelProviders.of, this depends upon a ViewModelStore and a ViewModelFactory
+- `ViewModelProviders.of`, this depends upon a `ViewModelStore` and a `ViewModelFactory`
 - `return new ViewModelProvider(ViewModelStores.of(fragment), factory);`
-- ViewModelStore store with a HashMap<String, ViewModel>
-- ViewModelFactory is using reflection to instantiate the ViewModel
-- AndroidViewModelFactory used in ViewModelProviders.of overrides a generic ViewModelFactory
-- ViewModelStoreOwner helps in surviving the configuration changes using Holder class and this whole gives us the viewModel instance without the parameter.
-- So, if we have arguments in our view model class constructor then we use custom ViewModelProviderFactory.
+- `ViewModelStore` store with a `HashMap<String, ViewModel>`
+- `ViewModelFactory` is using reflection to instantiate the ViewModel
+- `AndroidViewModelFactory` used in `ViewModelProviders.of` overrides a generic `ViewModelFactory`
+- `ViewModelStoreOwner` helps in surviving the configuration changes using Holder class and this whole gives us the viewModel instance without the parameter.
+- So, if we have arguments in our view model class constructor then we create custom `ViewModelProviderFactory`.
 
 <br>
 
@@ -28,6 +28,7 @@ class ViewModelProviderFactory<T : ViewModel>(
     private val kClass: KClass<T>,
     private val creator: () -> T
 ) : ViewModelProvider.NewInstanceFactory() {
+
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalArgumentException::class)
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -37,7 +38,16 @@ class ViewModelProviderFactory<T : ViewModel>(
 }
 ```
 
+- ```
+    ViewModelProviders.of(activity, ViewModelProviderFactory(MainViewModel::class){
+            // MainViewModel(PARAM_1,PARAM_2)
+        }).get(MainViewModel::class.java)
+  ```
+- We are extending our custom class with `ViewModelProvider.NewInstanceFactory()`.
+- This is used to create the instance of the given class. 
+- This by default returns class object with empty argument list. `return modelClass.newInstance();`
 - **KClass** is the holder of a class of type ViewModel that needs to be injected.
+- Instances of **KClass** class are obtainable by the `::class` syntax.
 - This is the Lambda function, this is provided by the ActivityModule/FragmentModule, when creator lambda is called then that module creates and return the instance of ViewModel.
 
 
@@ -69,6 +79,7 @@ This project use multiple libraries to bring easy way of implementation.
 - [ ] Bookmark Movie
 - [ ] Genre List Screen
 - [ ] Search feature
+- [ ] Unit Testing
 - [ ] Try Pagination Api by Jetpack
 - [ ] Update Region option
 - [ ] Update Language option
