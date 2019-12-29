@@ -67,6 +67,7 @@ This project use multiple libraries to bring easy way of implementation.
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [Material Design](https://material.io/develop/android/)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
+* [Palette API](https://developer.android.com/training/material/palette-colors)
 
 ### Screenshot
 <p float="left">
@@ -75,7 +76,7 @@ This project use multiple libraries to bring easy way of implementation.
 </p>
 
 ### Work in Progress
-- [ ] Detail Screen
+- [x] Detail Screen
 - [ ] Share Item
 - [ ] Try Coil lib
 - [ ] Bookmark Movie
