@@ -66,6 +66,7 @@ This project use multiple libraries to bring easy way of implementation.
 * [AndroidX](https://developer.android.com/jetpack/androidx)
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [Material Design](https://material.io/develop/android/)
+* [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
 ### Screenshot
 <p float="left">
