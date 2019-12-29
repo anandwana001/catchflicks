@@ -1,5 +1,6 @@
 package com.akshay.catchflicks.ui.popular.movie
 
+import androidx.lifecycle.MutableLiveData
 import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.ui.base.BaseItemViewModel
 import com.akshay.catchflicks.utils.network.NetworkHelper
@@ -21,8 +22,14 @@ class MovieItemViewModel @Inject constructor(
         const val TAG = "MovieItemViewModel"
     }
 
+    val launchDetail: MutableLiveData<Movie> = MutableLiveData()
+
     override fun onCreate() {
 
+    }
+
+    fun launchDetailScreen(movie: Movie) {
+        launchDetail.postValue(movie)
     }
 
 }

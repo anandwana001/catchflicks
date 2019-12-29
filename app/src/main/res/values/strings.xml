@@ -22,4 +22,7 @@
     <string name="region">Region</string>
     <string name="language">Language</string>
 
+    <!-- Detail screen -->
+    <string name="release_date">Released on %1$s</string>
+
 </resources>

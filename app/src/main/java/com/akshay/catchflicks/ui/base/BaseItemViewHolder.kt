@@ -98,6 +98,7 @@ abstract class BaseItemViewHolder<T : Any, VM : BaseItemViewModel<T>>(
 
     open fun bind(data: T) {
         binding.setVariable(BR.movie, data)
+        binding.setVariable(BR.viewModel, viewModel)
         binding.executePendingBindings()
     }
 

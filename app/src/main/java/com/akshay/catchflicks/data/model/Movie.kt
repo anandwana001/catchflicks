@@ -1,12 +1,15 @@
 package com.akshay.catchflicks.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by akshaynandwana on
  * 24, December, 2019
  **/
+@Parcelize
 data class Movie(
 
     @Expose
@@ -65,4 +68,4 @@ data class Movie(
     @SerializedName("release_date")
     val release_date: String
 
-)
+) : Parcelable

@@ -34,6 +34,10 @@ android {
     dataBinding {
         enabled = true
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -78,6 +82,8 @@ dependencies {
     // Image
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    implementation "com.android.support:palette-v7:$palette_version"
 
     // Networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
