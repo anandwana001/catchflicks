@@ -1,7 +1,9 @@
 package com.akshay.catchflicks.di.module
 
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.akshay.catchflicks.data.repository.GenreRepository
 import com.akshay.catchflicks.data.repository.NowPlayingRepository
 import com.akshay.catchflicks.data.repository.PopularRepository
 import com.akshay.catchflicks.data.repository.UpcomingRepository
@@ -12,6 +14,8 @@ import com.akshay.catchflicks.ui.popular.UpcomingViewModel
 import com.akshay.catchflicks.ui.popular.movie.MovieAdapter
 import com.akshay.catchflicks.ui.popular.movie.MovieNowPlayingAdapter
 import com.akshay.catchflicks.ui.popular.movie.MovieUpcomingAdapter
+import com.akshay.catchflicks.ui.popular.movie.SearchAdapter
+import com.akshay.catchflicks.ui.search.SearchViewModel
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
 import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
@@ -32,7 +36,13 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
     fun provideLinearLayoutManager(): LinearLayoutManager = LinearLayoutManager(fragment.context)
 
     @Provides
+    fun provideGridLayoutManager(): GridLayoutManager = GridLayoutManager(fragment.context, 2)
+
+    @Provides
     fun provideMovieAdapter(): MovieAdapter = MovieAdapter(fragment.lifecycle, ArrayList())
+
+    @Provides
+    fun provideSearchAdapter(): SearchAdapter = SearchAdapter(fragment.lifecycle, ArrayList())
 
     @Provides
     fun provideMovieNowPlayingAdapter(): MovieNowPlayingAdapter =
@@ -84,4 +94,17 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
                 PublishProcessor.create(), ArrayList()
             )
         }).get(UpcomingViewModel::class.java)
+
+    @Provides
+    fun provideSearchViewModel(
+        schedulerProvider: SchedulerProvider,
+        compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper,
+        genreRepository: GenreRepository
+    ): SearchViewModel = ViewModelProviders.of(
+        fragment, ViewModelProviderFactory(SearchViewModel::class) {
+            SearchViewModel(
+                compositeDisposable, schedulerProvider, networkHelper, genreRepository
+            )
+        }).get(SearchViewModel::class.java)
 }

@@ -20,6 +20,7 @@ class MainViewModel(
     val popularNavigation = MutableLiveData<Boolean>()
     val nowPlayingNavigation = MutableLiveData<Boolean>()
     val upcomingNavigation = MutableLiveData<Boolean>()
+    val searchNavigation = MutableLiveData<Boolean>()
 
     override fun onCreate() {
         popularNavigation.postValue(true)
@@ -35,6 +36,10 @@ class MainViewModel(
 
     fun onUpcomingSelected() {
         upcomingNavigation.postValue(true)
+    }
+
+    fun onSearchSelected() {
+        searchNavigation.postValue(true)
     }
 
 }

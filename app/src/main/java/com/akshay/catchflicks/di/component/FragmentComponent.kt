@@ -5,6 +5,7 @@ import com.akshay.catchflicks.di.module.FragmentModule
 import com.akshay.catchflicks.ui.popular.NowPlayingFragment
 import com.akshay.catchflicks.ui.popular.PopularFragment
 import com.akshay.catchflicks.ui.popular.UpcomingFragment
+import com.akshay.catchflicks.ui.search.SearchFragment
 import dagger.Component
 
 /**
@@ -24,4 +25,6 @@ interface FragmentComponent {
     fun inject(fragment: NowPlayingFragment)
 
     fun inject(fragment: UpcomingFragment)
+
+    fun inject(fragment: SearchFragment)
 }

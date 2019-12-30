@@ -5,6 +5,7 @@ import com.akshay.catchflicks.di.module.ViewHolderModule
 import com.akshay.catchflicks.ui.popular.movie.MovieItemViewHolder
 import com.akshay.catchflicks.ui.popular.movie.MovieNowPlayingItemViewHolder
 import com.akshay.catchflicks.ui.popular.movie.MovieUpcomingItemViewHolder
+import com.akshay.catchflicks.ui.popular.movie.SearchItemViewHolder
 import dagger.Component
 
 /**
@@ -23,5 +24,7 @@ interface ViewHolderComponent {
     fun inject(viewHolder: MovieNowPlayingItemViewHolder)
 
     fun inject(viewHolder: MovieUpcomingItemViewHolder)
+
+    fun inject(viewHolder: SearchItemViewHolder)
 
 }

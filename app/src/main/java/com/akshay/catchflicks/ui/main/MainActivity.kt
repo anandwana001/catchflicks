@@ -11,6 +11,7 @@ import com.akshay.catchflicks.ui.base.BaseActivity
 import com.akshay.catchflicks.ui.popular.NowPlayingFragment
 import com.akshay.catchflicks.ui.popular.PopularFragment
 import com.akshay.catchflicks.ui.popular.UpcomingFragment
+import com.akshay.catchflicks.ui.search.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel>() {
@@ -43,6 +44,10 @@ class MainActivity : BaseActivity<MainViewModel>() {
                         viewModel.onUpcomingSelected()
                         true
                     }
+                    R.id.itemSearch -> {
+                        viewModel.onSearchSelected()
+                        true
+                    }
                     else -> false
                 }
             }
@@ -70,6 +75,13 @@ class MainActivity : BaseActivity<MainViewModel>() {
                 showUpcoming()
             }
         })
+
+        viewModel.searchNavigation.observe(this, Observer {
+            it?.run {
+                showSearch()
+            }
+        })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -124,6 +136,24 @@ class MainActivity : BaseActivity<MainViewModel>() {
         if (fragment == null) {
             fragment = UpcomingFragment.newInstance()
             fragmentTransaction.add(R.id.container, fragment, UpcomingFragment.TAG)
+        } else {
+            fragmentTransaction.show(fragment)
+        }
+
+        checkAndSetUpActiveFragment(fragmentTransaction, fragment)
+    }
+
+    private fun showSearch() {
+        if (activeFragment is SearchFragment) return
+
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        var fragment =
+            supportFragmentManager.findFragmentByTag(SearchFragment.TAG) as SearchFragment?
+
+        if (fragment == null) {
+            fragment = SearchFragment.newInstance()
+            fragmentTransaction.add(R.id.container, fragment, SearchFragment.TAG)
         } else {
             fragmentTransaction.show(fragment)
         }
