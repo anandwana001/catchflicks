@@ -128,6 +128,13 @@ class PopularDetailActivity : BaseActivity<PopularDetailViewModel>() {
                                 )
                             )
 
+                            movieDetail.tvGenre.setTextColor(
+                                ManipulateColor.manipulateColor(
+                                    colorBasedOnImage,
+                                    0.32f
+                                )
+                            )
+
 
                         }
                         return false
@@ -143,6 +150,8 @@ class PopularDetailActivity : BaseActivity<PopularDetailViewModel>() {
                 resources.getString(R.string.release_date, it.release_date)
             movieDetail.tvOverview.text = it.overview
             movieDetail.tvVoteAverage.text = it.vote_average.toString()
+            collapsingtoolbarlayout.title = it.title
+            collapsingtoolbarlayout.setExpandedTitleColor(resources.getColor(android.R.color.transparent))
         }
     }
 
