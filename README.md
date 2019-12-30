@@ -73,11 +73,12 @@ This project use multiple libraries to bring easy way of implementation.
 <p float="left">
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/first_screenshot.jpg" width="200" height="400" /> 
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/detail_screen.jpg" width="200" height="400" />
 </p>
 
 ### Work in Progress
 - [x] Detail Screen
-- [ ] Share Item
+- [x] Share Item
 - [ ] Try Coil lib
 - [ ] Bookmark Movie
 - [ ] Genre List Screen
