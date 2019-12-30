@@ -79,14 +79,14 @@ This project use multiple libraries to bring easy way of implementation.
 ### Work in Progress
 - [x] Detail Screen
 - [x] Share Item
-- [ ] Try Coil lib
-- [ ] Bookmark Movie
 - [ ] Genre List Screen
 - [ ] Search feature
 - [ ] Unit Testing
-- [ ] Try Pagination Api by Jetpack
 - [ ] Update Region option
 - [ ] Update Language option
+- [ ] Try Pagination Api by Jetpack
 - [ ] Dark Mode
 - [ ] Try Navigation Component
 - [ ] Better UI
+- [ ] Bookmark Movie
+- [ ] Try Coil lib
