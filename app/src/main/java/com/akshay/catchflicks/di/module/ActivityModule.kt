@@ -3,6 +3,7 @@ package com.akshay.catchflicks.di.module
 import androidx.lifecycle.ViewModelProviders
 import com.akshay.catchflicks.data.repository.GenreRepository
 import com.akshay.catchflicks.ui.base.BaseActivity
+import com.akshay.catchflicks.ui.main.MainSharedViewModel
 import com.akshay.catchflicks.ui.main.MainViewModel
 import com.akshay.catchflicks.ui.popular.detail.PopularDetailViewModel
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
@@ -45,4 +46,14 @@ class ActivityModule(private val activity: BaseActivity<*>) {
                 genreRepository
             )
         }).get(PopularDetailViewModel::class.java)
+
+    @Provides
+    fun provideMainSharedViewModel(
+        compositeDisposable: CompositeDisposable,
+        schedulerProvider: SchedulerProvider,
+        networkHelper: NetworkHelper
+    ): MainSharedViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(MainSharedViewModel::class) {
+            MainSharedViewModel(compositeDisposable, schedulerProvider, networkHelper)
+        }).get(MainSharedViewModel::class.java)
 }

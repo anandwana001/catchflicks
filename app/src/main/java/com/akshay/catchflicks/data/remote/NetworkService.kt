@@ -1,6 +1,7 @@
 package com.akshay.catchflicks.data.remote
 
 import com.akshay.catchflicks.data.remote.response.*
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -46,7 +47,7 @@ interface NetworkService {
         @Query("language") language: String?,
         @Query("query") query: String,
         @Query("page") page: Int?
-    ): Single<SearchMoviesResponse>
+    ): Observable<SearchMoviesResponse>
 
 
 }

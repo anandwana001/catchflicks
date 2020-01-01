@@ -12,13 +12,18 @@ import com.akshay.catchflicks.ui.popular.NowPlayingFragment
 import com.akshay.catchflicks.ui.popular.PopularFragment
 import com.akshay.catchflicks.ui.popular.UpcomingFragment
 import com.akshay.catchflicks.ui.search.SearchFragment
+import com.akshay.catchflicks.ui.search.SearchViewFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel>() {
 
     companion object {
         const val TAG = "MainActivity"
     }
+
+    @Inject
+    lateinit var mainSharedViewModel: MainSharedViewModel
 
     private var activeFragment: Fragment? = null
 
@@ -82,6 +87,27 @@ class MainActivity : BaseActivity<MainViewModel>() {
             }
         })
 
+        mainSharedViewModel.homeRedirection.observe(this, Observer {
+            showSearchView()
+        })
+    }
+
+    private fun showSearchView() {
+        if (activeFragment is SearchViewFragment) return
+
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        var fragment =
+            supportFragmentManager.findFragmentByTag(SearchViewFragment.TAG) as SearchViewFragment?
+
+        if (fragment == null) {
+            fragment = SearchViewFragment.newInstance()
+            fragmentTransaction.add(R.id.container, fragment, SearchViewFragment.TAG)
+        } else {
+            fragmentTransaction.show(fragment)
+        }
+
+        checkAndSetUpActiveFragment(fragmentTransaction, fragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

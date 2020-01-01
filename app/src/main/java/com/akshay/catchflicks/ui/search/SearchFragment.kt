@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.akshay.catchflicks.R
 import com.akshay.catchflicks.di.component.FragmentComponent
 import com.akshay.catchflicks.ui.base.BaseFragment
+import com.akshay.catchflicks.ui.main.MainSharedViewModel
 import com.akshay.catchflicks.ui.popular.movie.SearchAdapter
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
@@ -36,6 +37,9 @@ class SearchFragment : BaseFragment<SearchViewModel>() {
     @Inject
     lateinit var searchAdapter: SearchAdapter
 
+    @Inject
+    lateinit var mainSharedViewModel: MainSharedViewModel
+
     override fun provideLayoutId(): Int = R.layout.fragment_search
 
     override fun injectDependencies(fragmentComponent: FragmentComponent) {
@@ -43,6 +47,11 @@ class SearchFragment : BaseFragment<SearchViewModel>() {
     }
 
     override fun setupView(view: View) {
+
+        toolbar.setOnClickListener {
+            mainSharedViewModel.onHomeRedirect()
+        }
+
         rvGenreList.apply {
             layoutManager = gridLayoutManager
             adapter = searchAdapter
