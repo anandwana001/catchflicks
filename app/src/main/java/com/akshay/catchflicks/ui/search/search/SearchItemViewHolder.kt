@@ -1,17 +1,14 @@
 package com.akshay.catchflicks.ui.popular.movie
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.akshay.catchflicks.R
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.di.component.ViewHolderComponent
 import com.akshay.catchflicks.ui.base.BaseItemViewHolder
-import kotlinx.android.synthetic.main.item_genre.view.*
-import java.util.*
 
 /**
  * Created by akshaynandwana on
@@ -19,10 +16,10 @@ import java.util.*
  **/
 class SearchItemViewHolder(
     parentViewGroup: ViewGroup
-) : BaseItemViewHolder<Genre, SearchItemViewModel>(
+) : BaseItemViewHolder<Movie, SearchItemViewModel>(
     (DataBindingUtil.inflate<ViewDataBinding>(
         LayoutInflater.from(parentViewGroup.context),
-        R.layout.item_genre, parentViewGroup, false
+        R.layout.item_search, parentViewGroup, false
     ))
 ) {
 
@@ -31,13 +28,6 @@ class SearchItemViewHolder(
     }
 
     override fun setupView(view: View) {
-        val rnd = Random()
-        val currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-        itemView.cvGenre.setCardBackgroundColor(currentColor)
-    }
-
-    override fun setupObservers() {
-        super.setupObservers()
 
     }
 

@@ -25,7 +25,8 @@ class SearchViewViewModel(
     private val searchRepository: SearchRepository
 ) : BaseViewModel(compositeDisposable, schedulerProvider, networkHelper) {
 
-    val searchResult: MutableLiveData<String> = MutableLiveData()
+    val searchResult: MutableLiveData<List<Movie>> = MutableLiveData()
+    val resetSearch: MutableLiveData<Boolean> = MutableLiveData()
 
     override fun onCreate() {
 
@@ -36,6 +37,10 @@ class SearchViewViewModel(
             RxSearchObservable.fromView(searchView)
                 .debounce(300, TimeUnit.MILLISECONDS)
                 .filter { text ->
+                    if (!text.isEmpty())
+                        resetSearch.postValue(false)
+                    else
+                        resetSearch.postValue(true)
                     return@filter !text.isEmpty()
                 }
                 .distinctUntilChanged()
@@ -51,7 +56,7 @@ class SearchViewViewModel(
                 .observeOn(schedulerProvider.ui())
                 .subscribe(
                     {
-                        searchResult.postValue(it.toString())
+                        searchResult.postValue(it)
                     }
                 )
         )

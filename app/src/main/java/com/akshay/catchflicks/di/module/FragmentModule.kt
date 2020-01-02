@@ -9,12 +9,13 @@ import com.akshay.catchflicks.ui.main.MainSharedViewModel
 import com.akshay.catchflicks.ui.popular.NowPlayingViewModel
 import com.akshay.catchflicks.ui.popular.PopularViewModel
 import com.akshay.catchflicks.ui.popular.UpcomingViewModel
+import com.akshay.catchflicks.ui.popular.movie.GenreAdapter
 import com.akshay.catchflicks.ui.popular.movie.MovieAdapter
 import com.akshay.catchflicks.ui.popular.movie.MovieNowPlayingAdapter
 import com.akshay.catchflicks.ui.popular.movie.MovieUpcomingAdapter
-import com.akshay.catchflicks.ui.popular.movie.SearchAdapter
-import com.akshay.catchflicks.ui.search.SearchViewModel
+import com.akshay.catchflicks.ui.search.GenreViewModel
 import com.akshay.catchflicks.ui.search.SearchViewViewModel
+import com.akshay.catchflicks.ui.search.search.SearchAdapter
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
 import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
@@ -42,6 +43,9 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
 
     @Provides
     fun provideSearchAdapter(): SearchAdapter = SearchAdapter(fragment.lifecycle, ArrayList())
+
+    @Provides
+    fun provideGenreAdapter(): GenreAdapter = GenreAdapter(fragment.lifecycle, ArrayList())
 
     @Provides
     fun provideMovieNowPlayingAdapter(): MovieNowPlayingAdapter =
@@ -94,17 +98,17 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
         }).get(UpcomingViewModel::class.java)
 
     @Provides
-    fun provideSearchViewModel(
+    fun provideGenreViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
         genreRepository: GenreRepository
-    ): SearchViewModel = ViewModelProviders.of(
-        fragment, ViewModelProviderFactory(SearchViewModel::class) {
-            SearchViewModel(
+    ): GenreViewModel = ViewModelProviders.of(
+        fragment, ViewModelProviderFactory(GenreViewModel::class) {
+            GenreViewModel(
                 compositeDisposable, schedulerProvider, networkHelper, genreRepository
             )
-        }).get(SearchViewModel::class.java)
+        }).get(GenreViewModel::class.java)
 
     @Provides
     fun provideSearchViewViewModel(

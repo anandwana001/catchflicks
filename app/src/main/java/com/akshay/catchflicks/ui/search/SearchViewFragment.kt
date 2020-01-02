@@ -3,10 +3,13 @@ package com.akshay.catchflicks.ui.search
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.akshay.catchflicks.R
 import com.akshay.catchflicks.di.component.FragmentComponent
 import com.akshay.catchflicks.ui.base.BaseFragment
+import com.akshay.catchflicks.ui.search.search.SearchAdapter
 import kotlinx.android.synthetic.main.fragment_search_view.*
+import javax.inject.Inject
 
 /**
  * Created by akshaynandwana on
@@ -26,6 +29,12 @@ class SearchViewFragment : BaseFragment<SearchViewViewModel>() {
         }
     }
 
+    @Inject
+    lateinit var linearLayoutManager: LinearLayoutManager
+
+    @Inject
+    lateinit var searchAdapter: SearchAdapter
+
     override fun provideLayoutId(): Int = R.layout.fragment_search_view
 
     override fun injectDependencies(fragmentComponent: FragmentComponent) {
@@ -37,12 +46,26 @@ class SearchViewFragment : BaseFragment<SearchViewViewModel>() {
         searchView.onActionViewExpanded()
         searchView.queryHint = "Search Movie"
         viewModel.searchQuery(searchView)
+
+        rvSearchResult.apply {
+            layoutManager = linearLayoutManager
+            adapter = searchAdapter
+        }
     }
 
     override fun setupObservers() {
         super.setupObservers()
+
         viewModel.searchResult.observe(this, Observer {
-            tvSearchResult.text = it
+            it?.run {
+                searchAdapter.appendData(this)
+            }
+        })
+
+        viewModel.resetSearch.observe(this, Observer {
+            if (it) {
+                searchAdapter.clearList()
+            }
         })
     }
 

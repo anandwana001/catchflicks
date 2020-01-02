@@ -8,7 +8,7 @@ import com.akshay.catchflicks.R
 import com.akshay.catchflicks.di.component.FragmentComponent
 import com.akshay.catchflicks.ui.base.BaseFragment
 import com.akshay.catchflicks.ui.main.MainSharedViewModel
-import com.akshay.catchflicks.ui.popular.movie.SearchAdapter
+import com.akshay.catchflicks.ui.popular.movie.GenreAdapter
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ import javax.inject.Inject
  * 30, December, 2019
  **/
 
-class SearchFragment : BaseFragment<SearchViewModel>() {
+class SearchFragment : BaseFragment<GenreViewModel>() {
 
     companion object {
 
@@ -35,7 +35,7 @@ class SearchFragment : BaseFragment<SearchViewModel>() {
     lateinit var gridLayoutManager: GridLayoutManager
 
     @Inject
-    lateinit var searchAdapter: SearchAdapter
+    lateinit var genreAdapter: GenreAdapter
 
     @Inject
     lateinit var mainSharedViewModel: MainSharedViewModel
@@ -54,7 +54,7 @@ class SearchFragment : BaseFragment<SearchViewModel>() {
 
         rvGenreList.apply {
             layoutManager = gridLayoutManager
-            adapter = searchAdapter
+            adapter = genreAdapter
         }
     }
 
@@ -63,7 +63,7 @@ class SearchFragment : BaseFragment<SearchViewModel>() {
 
         viewModel.genreList.observe(this, Observer {
             it?.run {
-                searchAdapter.appendData(this)
+                genreAdapter.appendData(this)
             }
         })
     }

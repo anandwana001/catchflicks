@@ -13,7 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
  * Created by akshaynandwana on
  * 30, December, 2019
  **/
-class SearchViewModel(
+class GenreViewModel(
     compositeDisposable: CompositeDisposable,
     schedulerProvider: SchedulerProvider,
     networkHelper: NetworkHelper,
