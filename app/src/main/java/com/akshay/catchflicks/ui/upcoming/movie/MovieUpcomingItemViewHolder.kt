@@ -1,14 +1,17 @@
 package com.akshay.catchflicks.ui.popular.movie
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import com.akshay.catchflicks.R
 import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.di.component.ViewHolderComponent
 import com.akshay.catchflicks.ui.base.BaseItemViewHolder
+import com.akshay.catchflicks.ui.detail.DetailActivity
 
 
 /**
@@ -29,11 +32,19 @@ class MovieUpcomingItemViewHolder(
     }
 
     override fun setupView(view: View) {
-        //bookmark click
+
     }
 
     override fun setupObservers() {
         super.setupObservers()
+
+        viewModel.launchDetail.observe(this, Observer {
+            it.let {
+                val intent = Intent(itemView.context, DetailActivity::class.java)
+                intent.putExtra("movie", it)
+                itemView.context.startActivity(intent)
+            }
+        })
     }
 
 }

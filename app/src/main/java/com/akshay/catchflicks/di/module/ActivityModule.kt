@@ -3,9 +3,9 @@ package com.akshay.catchflicks.di.module
 import androidx.lifecycle.ViewModelProviders
 import com.akshay.catchflicks.data.repository.GenreRepository
 import com.akshay.catchflicks.ui.base.BaseActivity
+import com.akshay.catchflicks.ui.detail.DetailViewModel
 import com.akshay.catchflicks.ui.main.MainSharedViewModel
 import com.akshay.catchflicks.ui.main.MainViewModel
-import com.akshay.catchflicks.ui.popular.detail.PopularDetailViewModel
 import com.akshay.catchflicks.utils.ViewModelProviderFactory
 import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
@@ -37,15 +37,15 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
         genreRepository: GenreRepository
-    ): PopularDetailViewModel = ViewModelProviders.of(
-        activity, ViewModelProviderFactory(PopularDetailViewModel::class) {
-            PopularDetailViewModel(
+    ): DetailViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(DetailViewModel::class) {
+            DetailViewModel(
                 compositeDisposable,
                 schedulerProvider,
                 networkHelper,
                 genreRepository
             )
-        }).get(PopularDetailViewModel::class.java)
+        }).get(DetailViewModel::class.java)
 
     @Provides
     fun provideMainSharedViewModel(

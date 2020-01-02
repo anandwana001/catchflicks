@@ -1,4 +1,4 @@
-package com.akshay.catchflicks.ui.popular.detail
+package com.akshay.catchflicks.ui.detail
 
 import androidx.lifecycle.MutableLiveData
 import com.akshay.catchflicks.data.model.Genre
@@ -14,7 +14,7 @@ import io.reactivex.disposables.CompositeDisposable
  * Created by akshaynandwana on
  * 29, December, 2019
  **/
-class PopularDetailViewModel(
+class DetailViewModel(
     compositeDisposable: CompositeDisposable,
     schedulerProvider: SchedulerProvider,
     networkHelper: NetworkHelper,

@@ -11,7 +11,7 @@ import com.akshay.catchflicks.R
 import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.di.component.ViewHolderComponent
 import com.akshay.catchflicks.ui.base.BaseItemViewHolder
-import com.akshay.catchflicks.ui.popular.detail.PopularDetailActivity
+import com.akshay.catchflicks.ui.detail.DetailActivity
 
 
 /**
@@ -40,7 +40,7 @@ class MovieItemViewHolder(
 
         viewModel.launchDetail.observe(this, Observer {
             it.let {
-                val intent = Intent(itemView.context, PopularDetailActivity::class.java)
+                val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra("movie", it)
                 itemView.context.startActivity(intent)
             }

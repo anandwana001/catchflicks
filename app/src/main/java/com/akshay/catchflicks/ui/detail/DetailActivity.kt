@@ -1,4 +1,4 @@
-package com.akshay.catchflicks.ui.popular.detail
+package com.akshay.catchflicks.ui.detail
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.movie_detail.view.*
  * Created by akshaynandwana on
  * 29, December, 2019
  **/
-class PopularDetailActivity : BaseActivity<PopularDetailViewModel>() {
+class DetailActivity : BaseActivity<DetailViewModel>() {
 
     var colorBasedOnImage: Int = 0
 

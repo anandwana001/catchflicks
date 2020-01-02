@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.popular.detail.PopularDetailActivity" />
+        <activity android:name=".ui.detail.DetailActivity" />
     </application>
 
 </manifest>
