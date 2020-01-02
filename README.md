@@ -79,8 +79,8 @@ This project use multiple libraries to bring easy way of implementation.
 ### Work in Progress
 - [x] Detail Screen
 - [x] Share Item
-- [ ] Genre List Screen
-- [ ] Search feature
+- [x] Genre List Screen
+- [x] Search feature
 - [ ] Unit Testing
 - [ ] Update Region option
 - [ ] Update Language option
