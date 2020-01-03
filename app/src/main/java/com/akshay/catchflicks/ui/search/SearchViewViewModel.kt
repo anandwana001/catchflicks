@@ -1,14 +1,13 @@
 package com.akshay.catchflicks.ui.search
 
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.MutableLiveData
 import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.data.repository.SearchRepository
 import com.akshay.catchflicks.ui.base.BaseViewModel
 import com.akshay.catchflicks.utils.common.Constants
 import com.akshay.catchflicks.utils.network.NetworkHelper
-import com.akshay.catchflicks.utils.rx.RxSearchObservable
 import com.akshay.catchflicks.utils.rx.SchedulerProvider
+import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function
@@ -32,9 +31,9 @@ class SearchViewViewModel(
 
     }
 
-    fun searchQuery(searchView: SearchView) {
+    fun searchQuery(observable: Observable<String>) {
         compositeDisposable.addAll(
-            RxSearchObservable.fromView(searchView)
+            observable
                 .debounce(300, TimeUnit.MILLISECONDS)
                 .filter { text ->
                     if (!text.isEmpty())

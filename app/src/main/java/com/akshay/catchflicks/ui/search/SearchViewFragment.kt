@@ -8,6 +8,7 @@ import com.akshay.catchflicks.R
 import com.akshay.catchflicks.di.component.FragmentComponent
 import com.akshay.catchflicks.ui.base.BaseFragment
 import com.akshay.catchflicks.ui.search.search.SearchAdapter
+import com.akshay.catchflicks.utils.rx.RxSearchObservable
 import kotlinx.android.synthetic.main.fragment_search_view.*
 import javax.inject.Inject
 
@@ -45,8 +46,10 @@ class SearchViewFragment : BaseFragment<SearchViewViewModel>() {
         searchView.setIconifiedByDefault(false)
         searchView.onActionViewExpanded()
         searchView.queryHint = "Search Movie"
-        viewModel.searchQuery(searchView)
 
+        val observable = RxSearchObservable.fromView(searchView)
+        viewModel.searchQuery(observable)
+        
         rvSearchResult.apply {
             layoutManager = linearLayoutManager
             adapter = searchAdapter
