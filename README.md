@@ -9,6 +9,21 @@ Project consist of multiple packages in order to achieve mvvm architecture.
 * ui
 * utils
 
+### Development Setup
+This project uses the [TMDb API](https://developers.themoviedb.org/4/getting-started) to fetch movies data.<br>
+To begin with the setup, firstly you need to create an API key. 
+
+1. Create an account at [themoviedb.org](https://www.themoviedb.org/documentation/api)
+1. Go to settings from the profile icon
+1. Click on API
+1. Click on create
+
+```
+# Insert at ~/.gradle/gradle.properties or catchflicks/gradle.properties
+API_KEY=<insert>
+```
+This project uses the Dagger2 for dependency Injection. After opening this project in your Android Studio you might get some error which is due unavailability of few classes. You need to `make project` or try to build the project, this will generate all the required classes for dagger. 
+
 ### Custom ViewModelProviderFactory
 I had created a custom `ViewModelProviderFactory` class because I need to pass arguments in my View Model class constructor. 
 
