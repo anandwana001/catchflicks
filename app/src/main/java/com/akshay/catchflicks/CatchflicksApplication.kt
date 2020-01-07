@@ -25,4 +25,9 @@ class CatchflicksApplication : Application() {
             .build()
         applicationComponent.inject(this)
     }
+
+    // for android test
+    fun setComponent(applicationComponent: ApplicationComponent) {
+        this.applicationComponent = applicationComponent
+    }
 }
