@@ -27,21 +27,24 @@ class GenreViewModel(
         getGenre()
     }
 
-    private fun getGenre() {
-        loading.postValue(true)
-        compositeDisposable.addAll(
-            genreRepository.fetchGenreList(Constants.LANGUAGE_EN)
-                .subscribeOn(schedulerProvider.io())
-                .subscribe(
-                    {
-                        loading.postValue(false)
-                        genreList.postValue(it)
-                    },
-                    {
-                        loading.postValue(false)
-                        handleNetworkError(it)
-                    }
-                )
-        )
+    fun getGenre() {
+
+        if (checkInternetConnectionWithMessage()) {
+            loading.postValue(true)
+            compositeDisposable.addAll(
+                genreRepository.fetchGenreList(Constants.LANGUAGE_EN)
+                    .subscribeOn(schedulerProvider.io())
+                    .subscribe(
+                        {
+                            loading.postValue(false)
+                            genreList.postValue(it)
+                        },
+                        {
+                            loading.postValue(false)
+                            handleNetworkError(it)
+                        }
+                    )
+            )
+        }
     }
 }
