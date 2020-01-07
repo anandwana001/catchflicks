@@ -97,7 +97,7 @@ This project use multiple libraries to bring easy way of implementation.
 - [x] Share Item
 - [x] Genre List Screen
 - [x] Search feature
-- [ ] Unit Testing
+- [x] Unit Testing
 - [ ] Update Region option
 - [ ] Update Language option
 - [ ] Try Pagination Api by Jetpack
