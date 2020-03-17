@@ -29,11 +29,9 @@ I had created a custom `ViewModelProviderFactory` class because I need to pass a
 
 - Default -> `ViewModelProviders.of(this).get(MyViewModel.class);`
 - `ViewModelProviders.of`, this depends upon a `ViewModelStore` and a `ViewModelFactory`
-- `return new ViewModelProvider(ViewModelStores.of(fragment), factory);`
-- `ViewModelStore` store with a `HashMap<String, ViewModelStore>`
-- `ViewModelFactory` is using reflection to instantiate the ViewModel
-- `AndroidViewModelFactory` used in `ViewModelProviders.of` overrides a generic `ViewModelFactory`
-- `ViewModelStoreOwner` helps in surviving the configuration changes using Holder class and this whole gives us the viewModel instance without the parameter.
+- `return new ViewModelProvider(activity.getViewModelStore(), factory);`
+- `getViewModelStore()` under the hood uses `onRetainNonConfigurationInstance()` method and `SavedStateRegistryController` class which calls `performRestore()` and `performSave()` method of `SavedStateRegistry` class. 
+- `ViewModelStore` store view model using `HashMap<String, ViewModel>`
 - So, if we have arguments in our view model class constructor then we create custom `ViewModelProviderFactory`.
 
 <br>
@@ -98,6 +96,7 @@ This project use multiple libraries to bring easy way of implementation.
 - [x] Genre List Screen
 - [x] Search feature
 - [x] Unit Testing
+- [ ] UI Testing, using espresso and mockito
 - [ ] Update Region option
 - [ ] Update Language option
 - [ ] Try Pagination Api by Jetpack
@@ -105,4 +104,3 @@ This project use multiple libraries to bring easy way of implementation.
 - [ ] Try Navigation Component
 - [ ] Better UI
 - [ ] Bookmark Movie
-- [ ] Try Coil lib
