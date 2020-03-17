@@ -30,7 +30,7 @@ I had created a custom `ViewModelProviderFactory` class because I need to pass a
 - Default -> `ViewModelProviders.of(this).get(MyViewModel.class);`
 - `ViewModelProviders.of`, this depends upon a `ViewModelStore` and a `ViewModelFactory`
 - `return new ViewModelProvider(ViewModelStores.of(fragment), factory);`
-- `ViewModelStore` store with a `HashMap<String, ViewModel>`
+- `ViewModelStore` store with a `HashMap<String, ViewModelStore>`
 - `ViewModelFactory` is using reflection to instantiate the ViewModel
 - `AndroidViewModelFactory` used in `ViewModelProviders.of` overrides a generic `ViewModelFactory`
 - `ViewModelStoreOwner` helps in surviving the configuration changes using Holder class and this whole gives us the viewModel instance without the parameter.
