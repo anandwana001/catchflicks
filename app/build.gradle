@@ -21,13 +21,13 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "API_KEY", API_KEY)
+            buildConfigField("String", "TMDB_API_KEY", "\"" + getTmdbApiKey() + "\"")
         }
         release {
             minifyEnabled true // to apply the proguard
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "API_KEY", API_KEY)
+            buildConfigField("String", "TMDB_API_KEY", "\"" + getTmdbApiKey() + "\"")
         }
     }
 
@@ -38,6 +38,20 @@ android {
     androidExtensions {
         experimental = true
     }
+}
+
+def getTmdbApiKey() {
+    def tmdbApiKey = System.getenv("TMDB_API_KEY")
+    if (tmdbApiKey == null || tmdbApiKey.length() == 0) {
+        def keysFile = file("keys.properties")
+        def keysProperties = new Properties()
+        keysProperties.load(new FileInputStream(keysFile))
+        tmdbApiKey = keysProperties['TMDB_API_KEY']
+        if (tmdbApiKey == null) {
+            logger.error("You need to either place appropriate keys.properties or set proper environment variables for API key")
+        }
+    }
+    return tmdbApiKey
 }
 
 dependencies {
@@ -83,7 +97,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
-    implementation "com.android.support:palette-v7:$palette_version"
+    implementation "androidx.palette:palette:$palette_version"
 
     // Networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
