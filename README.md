@@ -1,4 +1,7 @@
 # Catchflicks 🎬
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/780e812d7e2e4d0aa46e9d1da8038c84)](https://app.codacy.com/manual/anandwana001/catchflicks?utm_source=github.com&utm_medium=referral&utm_content=anandwana001/catchflicks&utm_campaign=Badge_Grade_Dashboard)
+
 Catchflicks is a sample project after completing [Android Development Online Course For Professionals by MindOrks](https://bootcamp.mindorks.com/). 
 
 This app shows the popular movies, upcoming movies and the ongoing movies in theatre from the movie db API.
