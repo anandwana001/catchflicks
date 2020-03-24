@@ -1,7 +1,8 @@
-# Catchflicks
+# Catchflicks 🎬
 Catchflicks is a sample project after completing [Android Development Online Course For Professionals by MindOrks](https://bootcamp.mindorks.com/). 
 
-The goal of this sample project is to implement all the learning from the Bootcamp. Also, to implement the latest android concepts, this project works as a playground app.
+This app shows the popular movies, upcoming movies and the ongoing movies in theatre from the movie db API.
+The goal of this sample project is to implement most of the learning from the Bootcamp. Also, this project works as a kitchen sink project where anyone can play with any new Android API's and concepts.
 
 Project consist of multiple packages in order to achieve mvvm architecture.
 * data
@@ -9,7 +10,25 @@ Project consist of multiple packages in order to achieve mvvm architecture.
 * ui
 * utils
 
-### Development Setup
+
+### Tech-stack 🛠
+This project use multiple libraries to bring easy way of implementation
+- [Dagger2](https://dagger.dev/) - Dependency Injection Framework
+- [Retrofit](https://square.github.io/retrofit/) - Used for Networking
+- [Timber](https://github.com/JakeWharton/timber) - Helps in logging 
+- [Glide](https://github.com/bumptech/glide) - use to load image
+- [RxJava](https://github.com/ReactiveX/RxJava) - to perform asynchronous work
+- [GSON](https://github.com/google/gson) - use to serialize and deserialize Java objects to JSON
+- [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - manage activity and fragment lifecycle
+- [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - observable data holder
+- [AndroidX](https://developer.android.com/jetpack/androidx) - android library for core functionalities
+- [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - manage data in lifecycle aware fashion
+- [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android
+- [Data Binding](https://developer.android.com/topic/libraries/data-binding) - helps to bind UI with data source
+- [Palette API](https://developer.android.com/training/material/palette-colors) - dynamically change app color scheme
+
+
+### Development Setup ⚙️
 This project uses the [TMDb API](https://developers.themoviedb.org/4/getting-started) to fetch movies data.<br>
 To begin with the setup, firstly you need to create an API key. 
 
@@ -24,7 +43,8 @@ API_KEY=<insert>
 ```
 This project uses the Dagger2 for dependency Injection. After opening this project in your Android Studio you might get some error which is due unavailability of few classes. You need to `make project` or try to build the project, this will generate all the required classes for dagger. 
 
-### Custom ViewModelProviderFactory
+
+### Custom ViewModelProviderFactory 🦾🦿
 I had created a custom `ViewModelProviderFactory` class because I need to pass arguments in my View Model class constructor. 
 
 - Default -> `ViewModelProviders.of(this).get(MyViewModel.class);`
@@ -65,24 +85,7 @@ class ViewModelProviderFactory<T : ViewModel>(
 - This is the Lambda function, this is provided by the ActivityModule/FragmentModule, when creator lambda is called then that module creates and return the instance of ViewModel.
 
 
-### Tech-stack
-This project use multiple libraries to bring easy way of implementation.
-* [Dagger2](https://dagger.dev/)
-* [Retrofit](https://square.github.io/retrofit/)
-* [Timber](https://github.com/JakeWharton/timber)
-* [Glide](https://github.com/bumptech/glide)
-* [RxJava](https://github.com/ReactiveX/RxJava)
-* [GSON](https://github.com/google/gson)
-* [Room](https://developer.android.com/topic/libraries/architecture/room)
-* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
-* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
-* [AndroidX](https://developer.android.com/jetpack/androidx)
-* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
-* [Material Design](https://material.io/develop/android/)
-* [Data Binding](https://developer.android.com/topic/libraries/data-binding)
-* [Palette API](https://developer.android.com/training/material/palette-colors)
-
-### Screenshot
+### Screenshot 📱
 <p float="left">
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/detail_screen.jpg" width="200" height="400" />
@@ -90,17 +93,45 @@ This project use multiple libraries to bring easy way of implementation.
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/search_result.jpg" width="200" height="400" />
 </p>
 
-### Work in Progress
-- [x] Detail Screen
-- [x] Share Item
-- [x] Genre List Screen
-- [x] Search feature
-- [x] Unit Testing
+
+### Work in Progress 🚧🛠🚧
+- [ ] Search feature
+- [ ] Unit Testing
 - [ ] UI Testing, using espresso and mockito
 - [ ] Update Region option
 - [ ] Update Language option
-- [ ] Try Pagination Api by Jetpack
+- [ ] Try Pagination API
 - [ ] Dark Mode
 - [ ] Try Navigation Component
+- [ ] Coroutine
 - [ ] Better UI
 - [ ] Bookmark Movie
+
+
+## Contact 🔗
+Let's connect here -> [akshayn.app](https://akshayn.app/)
+
+
+## License 📝
+```
+MIT License
+
+Copyright (c) 2020 Akshay Nandwana
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
