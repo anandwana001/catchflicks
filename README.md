@@ -1,6 +1,6 @@
 # Catchflicks 🎬
 
-[![CircleCI](https://circleci.com/gh/anandwana001/catchflicks.svg?style=svg&branch=master)](https://circleci.com/gh/anandwana001/catchflicks)
+[![CircleCI](https://circleci.com/gh/anandwana001/catchflicks.svg?style=svg&branch=master)](https://app.circleci.com/pipelines/github/anandwana001/catchflicks)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/780e812d7e2e4d0aa46e9d1da8038c84)](https://app.codacy.com/manual/anandwana001/catchflicks?utm_source=github.com&utm_medium=referral&utm_content=anandwana001/catchflicks&utm_campaign=Badge_Grade_Dashboard)
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
