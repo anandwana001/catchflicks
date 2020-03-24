@@ -4,7 +4,18 @@ Catchflicks is a sample project after completing [Android Development Online Cou
 This app shows the popular movies, upcoming movies and the ongoing movies in theatre from the movie db API.
 The goal of this sample project is to implement most of the learning from the Bootcamp. Also, this project works as a kitchen sink project where anyone can play with any new Android API's and concepts.
 
-Project consist of multiple packages in order to achieve mvvm architecture.
+
+## Screenshot 📱
+<p float="left">
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/detail_screen.jpg" width="200" height="400" />
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/search_frag.jpg" width="200" height="400" />
+<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/search_result.jpg" width="200" height="400" />
+</p>
+
+
+## Architecture
+Project consist of multiple packages in order to achieve MVVM architecture.
 * data
 * di
 * ui
@@ -83,15 +94,6 @@ class ViewModelProviderFactory<T : ViewModel>(
 - **KClass** is the holder of a class of type ViewModel that needs to be injected.
 - Instances of **KClass** class are obtainable by the `::class` syntax.
 - This is the Lambda function, this is provided by the ActivityModule/FragmentModule, when creator lambda is called then that module creates and return the instance of ViewModel.
-
-
-## Screenshot 📱
-<p float="left">
-<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
-<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/detail_screen.jpg" width="200" height="400" />
-<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/search_frag.jpg" width="200" height="400" />
-<img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/search_result.jpg" width="200" height="400" />
-</p>
 
 
 ## Work in Progress 🚧🛠🚧
