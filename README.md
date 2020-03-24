@@ -1,8 +1,17 @@
 # Catchflicks 🎬
 
+[![CircleCI](https://circleci.com/gh/anandwana001/catchflicks.svg?style=svg&branch=master)](https://circleci.com/gh/anandwana001/catchflicks)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/780e812d7e2e4d0aa46e9d1da8038c84)](https://app.codacy.com/manual/anandwana001/catchflicks?utm_source=github.com&utm_medium=referral&utm_content=anandwana001/catchflicks&utm_campaign=Badge_Grade_Dashboard)
 
-Catchflicks is a sample project after completing [Android Development Online Course For Professionals by MindOrks](https://bootcamp.mindorks.com/). 
+[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/anandwana001/catchflicks.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/anandwana001/catchflicks/stargazers/)
+[![GitHub forks](https://img.shields.io/github/forks/anandwana001/catchflicks.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/anandwana001/catchflicks/network)
+[![GitHub watchers](https://img.shields.io/github/watchers/anandwana001/catchflicks.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/anandwana001/catchflicks/watchers)
+[![GitHub followers](https://img.shields.io/github/followers/anandwana001.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/anandwana001?tab=followers)
+![Twitter Follow](https://img.shields.io/twitter/follow/akshay81844?label=Follow&style=social)
+
+
+**Catchflicks** is a sample project after completing [Android Development Online Course For Professionals by MindOrks](https://bootcamp.mindorks.com/). 
 
 This app shows the popular movies, upcoming movies and the ongoing movies in theatre from the movie db API.
 The goal of this sample project is to implement most of the learning from the Bootcamp. Also, this project works as a kitchen sink project where anyone can play with any new Android API's and concepts.
