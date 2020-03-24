@@ -11,7 +11,7 @@ Project consist of multiple packages in order to achieve mvvm architecture.
 * utils
 
 
-### Tech-stack 🛠
+## Tech-stack 🛠
 This project use multiple libraries to bring easy way of implementation
 - [Dagger2](https://dagger.dev/) - Dependency Injection Framework
 - [Retrofit](https://square.github.io/retrofit/) - Used for Networking
@@ -28,7 +28,7 @@ This project use multiple libraries to bring easy way of implementation
 - [Palette API](https://developer.android.com/training/material/palette-colors) - dynamically change app color scheme
 
 
-### Development Setup ⚙️
+## Development Setup ⚙️
 This project uses the [TMDb API](https://developers.themoviedb.org/4/getting-started) to fetch movies data.<br>
 To begin with the setup, firstly you need to create an API key. 
 
@@ -44,7 +44,7 @@ API_KEY=<insert>
 This project uses the Dagger2 for dependency Injection. After opening this project in your Android Studio you might get some error which is due unavailability of few classes. You need to `make project` or try to build the project, this will generate all the required classes for dagger. 
 
 
-### Custom ViewModelProviderFactory 🦾🦿
+## Custom ViewModelProviderFactory 🦾🦿
 I had created a custom `ViewModelProviderFactory` class because I need to pass arguments in my View Model class constructor. 
 
 - Default -> `ViewModelProviders.of(this).get(MyViewModel.class);`
@@ -85,7 +85,7 @@ class ViewModelProviderFactory<T : ViewModel>(
 - This is the Lambda function, this is provided by the ActivityModule/FragmentModule, when creator lambda is called then that module creates and return the instance of ViewModel.
 
 
-### Screenshot 📱
+## Screenshot 📱
 <p float="left">
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/update_screenshot.jpg" width="200" height="400" />
 <img src="https://raw.github.com/anandwana001/catchflicks/master/screenshot/detail_screen.jpg" width="200" height="400" />
@@ -94,7 +94,7 @@ class ViewModelProviderFactory<T : ViewModel>(
 </p>
 
 
-### Work in Progress 🚧🛠🚧
+## Work in Progress 🚧🛠🚧
 - [ ] Search feature
 - [ ] Unit Testing
 - [ ] UI Testing, using espresso and mockito
