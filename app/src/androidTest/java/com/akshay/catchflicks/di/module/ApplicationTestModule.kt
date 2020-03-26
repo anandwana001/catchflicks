@@ -37,7 +37,7 @@ class ApplicationTestModule(private val application: CatchflicksApplication) {
     @Singleton
     fun provideNetworkService(): NetworkService =
         Networking.createRetrofitInstance(
-            BuildConfig.API_KEY,
+            BuildConfig.TMDB_API_KEY,
             BuildConfig.BASE_URL,
             application.cacheDir,
             10 * 1024 * 1024
