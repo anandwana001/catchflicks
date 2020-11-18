@@ -25,7 +25,7 @@
 package com.akshay.catchflicks.ui.search
 
 import androidx.lifecycle.MutableLiveData
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.data.repository.GenreRepository
 import com.akshay.catchflicks.ui.base.BaseViewModel
 import com.akshay.catchflicks.utils.common.Constants
@@ -38,10 +38,10 @@ import io.reactivex.disposables.CompositeDisposable
  * 30, December, 2019
  **/
 class GenreViewModel(
-    compositeDisposable: CompositeDisposable,
-    schedulerProvider: SchedulerProvider,
-    networkHelper: NetworkHelper,
-    private val genreRepository: GenreRepository
+        compositeDisposable: CompositeDisposable,
+        schedulerProvider: SchedulerProvider,
+        networkHelper: NetworkHelper,
+        private val genreRepository: GenreRepository
 ) : BaseViewModel(compositeDisposable, schedulerProvider, networkHelper) {
 
     val loading: MutableLiveData<Boolean> = MutableLiveData()

@@ -25,6 +25,7 @@
 package com.akshay.catchflicks.data.remote
 
 import com.akshay.catchflicks.data.remote.response.*
+import com.akshay.catchflicks.app.GenreResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET

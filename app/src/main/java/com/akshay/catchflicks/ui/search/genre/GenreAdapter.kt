@@ -26,7 +26,7 @@ package com.akshay.catchflicks.ui.popular.movie
 
 import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.ui.base.BaseAdapter
 
 /**

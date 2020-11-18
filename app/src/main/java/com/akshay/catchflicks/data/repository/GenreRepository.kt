@@ -24,7 +24,7 @@
 
 package com.akshay.catchflicks.data.repository
 
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.data.remote.NetworkService
 import io.reactivex.Single
 import javax.inject.Inject
@@ -40,7 +40,7 @@ class GenreRepository @Inject constructor(
     fun fetchGenreList(language: String): Single<List<Genre>> {
         return networkService.doGenreCall(language = language)
             .map {
-                it.genres
+                it.genresList
             }
     }
 }

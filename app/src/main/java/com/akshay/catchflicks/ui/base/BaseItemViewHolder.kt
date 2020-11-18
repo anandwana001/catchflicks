@@ -24,6 +24,7 @@
 
 package com.akshay.catchflicks.ui.base
 
+import android.util.Log
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.databinding.ViewDataBinding

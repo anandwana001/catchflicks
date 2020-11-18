@@ -24,7 +24,7 @@
 
 package com.akshay.catchflicks.ui.popular.movie
 
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.ui.base.BaseItemViewModel
 import com.akshay.catchflicks.utils.network.NetworkHelper
 import com.akshay.catchflicks.utils.rx.SchedulerProvider

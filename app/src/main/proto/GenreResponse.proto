@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package app;
+
+option java_package = "com.akshay.catchflicks.app";
+option java_multiple_files = true;
+
+message GenreResponse {
+
+    repeated Genre genres = 1;
+}
+
+message Genre {
+
+    string id = 1;
+
+    string name = 2;
+}

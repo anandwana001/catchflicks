@@ -25,7 +25,7 @@
 package com.akshay.catchflicks.ui.detail
 
 import androidx.lifecycle.MutableLiveData
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.data.model.Movie
 import com.akshay.catchflicks.data.repository.GenreRepository
 import com.akshay.catchflicks.ui.base.BaseViewModel

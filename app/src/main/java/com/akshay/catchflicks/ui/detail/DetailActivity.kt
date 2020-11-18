@@ -88,7 +88,7 @@ class DetailActivity : BaseActivity<DetailViewModel>() {
                 val sb = StringBuilder()
 
                 genreList.forEachIndexed { i, genre ->
-                    if (movieGenreList.contains(genre.id)) {
+                    if (movieGenreList.contains((genre.id).toInt())) {
                         sb.append(genre.name).append("   ")
                     }
                 }
@@ -105,103 +105,103 @@ class DetailActivity : BaseActivity<DetailViewModel>() {
                 options.centerInside()
 
                 Glide.with(this)
-                    .load(urlPoster)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(options)
-                    .into(ivPoster)
+                        .load(urlPoster)
+                        .transition(DrawableTransitionOptions.withCrossFade())
+                        .apply(options)
+                        .into(ivPoster)
 
                 Glide.with(this)
-                    .asBitmap()
-                    .load(urlBackdrop)
-                    .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(
-                            e: GlideException?,
-                            model: Any?,
-                            target: Target<Bitmap>?,
-                            isFirstResource: Boolean
-                        ): Boolean {
-                            startPostponedEnterTransition()
-                            return false
-                        }
-
-                        override fun onResourceReady(
-                            resource: Bitmap?,
-                            model: Any?,
-                            target: Target<Bitmap>?,
-                            dataSource: DataSource?,
-                            isFirstResource: Boolean
-                        ): Boolean {
-                            startPostponedEnterTransition()
-                            resource?.let {
-                                val p = Palette.from(resource).generate()
-                                colorBasedOnImage = p.getMutedColor(
-                                    ContextCompat.getColor(
-                                        applicationContext,
-                                        R.color.colorAccent
-                                    )
-                                )
-
-                                collapsingtoolbarlayout.setContentScrimColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.62f
-                                    )
-                                )
-
-                                getWindow().setStatusBarColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.32f
-                                    )
-                                )
-
-                                movieDetail.tvTitle.setTextColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.62f
-                                    )
-                                )
-
-                                movieDetail.tvHeading.setTextColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.62f
-                                    )
-                                )
-
-                                movieDetail.tvOverview.setTextColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.32f
-                                    )
-                                )
-
-                                movieDetail.tvReleaseDate.setTextColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.32f
-                                    )
-                                )
-
-                                movieDetail.tvGenre.setTextColor(
-                                    ManipulateColor.manipulateColor(
-                                        colorBasedOnImage,
-                                        0.32f
-                                    )
-                                )
-
-
+                        .asBitmap()
+                        .load(urlBackdrop)
+                        .listener(object : RequestListener<Bitmap> {
+                            override fun onLoadFailed(
+                                    e: GlideException?,
+                                    model: Any?,
+                                    target: Target<Bitmap>?,
+                                    isFirstResource: Boolean
+                            ): Boolean {
+                                startPostponedEnterTransition()
+                                return false
                             }
-                            return false
+
+                            override fun onResourceReady(
+                                    resource: Bitmap?,
+                                    model: Any?,
+                                    target: Target<Bitmap>?,
+                                    dataSource: DataSource?,
+                                    isFirstResource: Boolean
+                            ): Boolean {
+                                startPostponedEnterTransition()
+                                resource?.let {
+                                    val p = Palette.from(resource).generate()
+                                    colorBasedOnImage = p.getMutedColor(
+                                            ContextCompat.getColor(
+                                                    applicationContext,
+                                                    R.color.colorAccent
+                                            )
+                                    )
+
+                                    collapsingtoolbarlayout.setContentScrimColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.62f
+                                            )
+                                    )
+
+                                    getWindow().setStatusBarColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.32f
+                                            )
+                                    )
+
+                                    movieDetail.tvTitle.setTextColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.62f
+                                            )
+                                    )
+
+                                    movieDetail.tvHeading.setTextColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.62f
+                                            )
+                                    )
+
+                                    movieDetail.tvOverview.setTextColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.32f
+                                            )
+                                    )
+
+                                    movieDetail.tvReleaseDate.setTextColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.32f
+                                            )
+                                    )
+
+                                    movieDetail.tvGenre.setTextColor(
+                                            ManipulateColor.manipulateColor(
+                                                    colorBasedOnImage,
+                                                    0.32f
+                                            )
+                                    )
+
+
+                                }
+                                return false
+                            }
                         }
-                    }
-                    )
-                    .apply(options)
-                    .into(ivBackdrop)
+                        )
+                        .apply(options)
+                        .into(ivBackdrop)
 
                 movieDetail.tvTitle.text = it.title
                 movieDetail.tvReleaseDate.text =
-                    resources.getString(R.string.release_date, it.release_date)
+                        resources.getString(R.string.release_date, it.release_date)
                 movieDetail.tvOverview.text = it.overview
                 movieDetail.tvVoteAverage.text = it.vote_average.toString()
                 collapsingtoolbarlayout.title = it.title

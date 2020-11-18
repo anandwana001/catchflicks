@@ -31,7 +31,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.akshay.catchflicks.R
-import com.akshay.catchflicks.data.model.Genre
+import com.akshay.catchflicks.app.Genre
 import com.akshay.catchflicks.di.component.ViewHolderComponent
 import com.akshay.catchflicks.ui.base.BaseItemViewHolder
 import kotlinx.android.synthetic.main.item_genre.view.*

@@ -31,6 +31,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.protobuf.ProtoConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -76,6 +77,7 @@ object Networking {
                     .build()
             )
             .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(ProtoConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(NetworkService::class.java)

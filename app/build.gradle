@@ -30,6 +30,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.google.protobuf'
+
 android {
     compileSdkVersion rootProject.ext.compile_sdk_version
 
@@ -62,6 +64,11 @@ android {
     androidExtensions {
         experimental = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 def getTmdbApiKey() {
@@ -76,6 +83,27 @@ def getTmdbApiKey() {
         }
     }
     return tmdbApiKey
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        javalite {
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.plugins {
+                javalite {}
+            }
+        }
+    }
 }
 
 dependencies {
@@ -123,6 +151,9 @@ dependencies {
 
     implementation "androidx.palette:palette:$palette_version"
 
+    // protobuf
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+
     // Networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
@@ -139,6 +170,9 @@ dependencies {
 
     // Parser
     implementation "com.google.code.gson:gson:$gson_version"
+
+    // Parser
+    implementation 'com.squareup.retrofit2:converter-protobuf:2.9.0'
 
     // Debugging
     debugImplementation "com.amitshekhar.android:debug-db:$debug_db_version"
@@ -157,4 +191,17 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+}
+
+sourceSets {
+    main.java.srcDirs += "${protobuf.generatedFilesBaseDir}/main/javalite"
+    main.java.srcDirs += "$projectDir/src/main/proto"
+}
+
+processResources {
+    exclude('**/*.proto')
+}
+
+configurations {
+    all*.exclude module: 'protobuf-java'
 }

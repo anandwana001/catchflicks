@@ -31,7 +31,7 @@
 
         <variable
             name="movie"
-            type="com.akshay.catchflicks.data.model.Genre" />
+            type="com.akshay.catchflicks.app.Genre" />
 
     </data>
 
